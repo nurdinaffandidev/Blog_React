@@ -102,23 +102,23 @@ const Home = () => {
     const [isPending, setIsPending] = useState(true); // initialize as true to handle loading state
     const [error, setError] = useState(null); // initialize as null to handle error state
 
-    useEffect(() => {
-        fetch("http://localhost:8000/blogs")
-            .then(response => {
-                if (!response.ok) {
-                    throw Error("Could not fetch the data for that resource");
-                }
-                return response.json();
-            })
-            .then(data => {
-                setBlogs(data);
-                setIsPending(false); // set isPending to false after data is fetched
-            })
-            .catch(err => {
-                console.error(err);
-                setBlogs([]); // set to empty array on error to avoid rendering null
-            });
-    }, []);
+    // useEffect(() => {
+    //     fetch("http://localhost:8000/blogs")
+    //         .then(response => {
+    //             if (!response.ok) {
+    //                 throw Error("Could not fetch the data for that resource");
+    //             }
+    //             return response.json();
+    //         })
+    //         .then(data => {
+    //             setBlogs(data);
+    //             setIsPending(false); // set isPending to false after data is fetched
+    //         })
+    //         .catch(err => {
+    //             console.error(err);
+    //             setBlogs([]); // set to empty array on error to avoid rendering null
+    //         });
+    // }, []);
 
     // --- to simulate loading, apply setTimeout() ---
     useEffect(() => {
