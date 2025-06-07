@@ -1,0 +1,8 @@
+npx json-server --watch data/db.json --port 8000
+
+API endpoints:
+GET: localhost:8000/blogs (fetch all blogs)
+GET: localhost:8000/blogs/{id} (fetch single blog)
+POST: localhost:8000/blogs (add a new blog)
+DELETE: localhost:8000/blogs/{id} (delete single blog)
+
