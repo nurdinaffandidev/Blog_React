@@ -79,10 +79,10 @@ const Home = () => {
      */
 
     {/* --- with hardcoded blogs data --- */}
-    const handleDeleteBlog = (id) => {
-        const remainingBlogs = blogs.filter(blog => blog.id !== id);
-        setBlogs(remainingBlogs);
-    }
+    // const handleDeleteBlog = (id) => {
+    //     const remainingBlogs = blogs.filter(blog => blog.id !== id);
+    //     setBlogs(remainingBlogs);
+    // }
 
     /**
      * Note: useEffect is a hook that allows us to perform side effects in functional components.
@@ -193,10 +193,9 @@ const Home = () => {
             */}
             {error && <div style={{color: "red", marginTop: "50px"}}><h2 style={{color: "red"}}>{ error } blogs</h2></div>}
             {isPending && <div style={{marginTop: "50px"}}><h2>Loading...</h2></div>}
-            {error === null && blogs && <BlogList blogs={blogs} title="All Blogs:" handleDeleteBlog={handleDeleteBlog}/>}
+            {error === null && blogs && <BlogList blogs={blogs} title="All Blogs:"/>}
             {error === null && blogs && <BlogList blogs={blogs.filter((blog) => blog.author.toLowerCase() === "mario")} 
-                      title="Mario's Blogs:"
-                      handleDeleteBlog={handleDeleteBlog}/>}
+                      title="Mario's Blogs:"/>}
             
         </div>
      );
