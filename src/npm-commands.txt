@@ -1,0 +1,5 @@
+// install react router
+npm install react-router-dom@5
+
+// run server for app
+npm run start
