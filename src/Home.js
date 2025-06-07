@@ -1,5 +1,6 @@
 import { useState, useEffect, use } from "react"
 import BlogList from './BlogList'
+import useFetch from "./useFetch"
 
 const Home = () => {
 
@@ -98,53 +99,8 @@ const Home = () => {
                // with [name] as a dependency, it runs only when 'name' changes, similar to componentDidUpdate in class components
 
     // --- fetching blogs data ---
-    const [blogs, setBlogs] = useState(null); // initialize as null to handle loading state
-    const [isPending, setIsPending] = useState(true); // initialize as true to handle loading state
-    const [error, setError] = useState(null); // initialize as null to handle error state
-
-    // useEffect(() => {
-    //     fetch("http://localhost:8000/blogs")
-    //         .then(response => {
-    //             if (!response.ok) {
-    //                 throw Error("Could not fetch the data for that resource");
-    //             }
-    //             return response.json();
-    //         })
-    //         .then(data => {
-    //             setBlogs(data);
-    //             setIsPending(false); // set isPending to false after data is fetched
-    //         })
-    //         .catch(err => {
-    //             console.error(err);
-    //             setBlogs([]); // set to empty array on error to avoid rendering null
-    //         });
-    // }, []);
-
-    // --- to simulate loading, apply setTimeout() ---
-    useEffect(() => {
-        setTimeout(() => {
-            fetch("http://localhost:8000/blogs")
-            .then(response => {
-                console.log(response)
-                if (!response.ok) {
-                    throw Error("Could not fetch the data for that resource");
-                }
-                return response.json();
-            })
-            .then(data => {
-                setError(null); // reset error state before setting blogs
-                setBlogs(data);
-                setIsPending(false); // set isPending to false after data is fetched
-            })
-            .catch(err => {
-                console.error(err);
-                console.log(err.message);
-                setError(err.message); // set error message to state
-                setIsPending(false); // set isPending to false after error
-                setBlogs([]); // set to empty array on error to avoid rendering null
-            });
-        }, 1000);
-    }, []);
+    // Note: useFetch is a custom hook that we created to fetch data from an API
+    const { data: blogs, isPending, error} = useFetch("http://localhost:8000/blogs");
     // -----------------------------
     
 
