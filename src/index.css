@@ -66,9 +66,21 @@
   color: #ec87a5;
 }
 
-.blog-header {
+.blog-preview a {
+  text-decoration: none;
+}
+
+.blog-row {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  /* gap: 10px;  */
+  align-items: center;
+  gap: 20px;
+}
+
+.blog-preview {
+  flex-grow: 1;
+}
+
+.delete-button {
+  margin-left: 20px;
 }
