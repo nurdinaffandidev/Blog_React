@@ -2,6 +2,7 @@ import Navbar from './Navbar';
 import Home from './Home';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Create from './CreateBlog';
+import BlogDetails from './BlogDetails';
 
 function App() {
   // const title = "App Component from const";
@@ -20,6 +21,11 @@ function App() {
             </Route>
             <Route exact path="/create">
               <Create />
+            </Route>
+            {/* :id is a dynamic segment in the URL, it will match any value and pass it as a prop to BlogDetails component */}
+            <Route exact path="/blogs/:id"> 
+              {/* BlogDetails component will receive the id as a prop */}
+              <BlogDetails />
             </Route>
           </Switch> 
           
