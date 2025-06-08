@@ -149,9 +149,9 @@ const Home = () => {
             */}
             {error && <div style={{color: "red", marginTop: "50px"}}><h2 style={{color: "red"}}>{ error } blogs</h2></div>}
             {isPending && <div style={{marginTop: "50px"}}><h2>Loading...</h2></div>}
-            {error === null && blogs && <BlogList blogs={blogs} title="All Blogs:"/>}
+            {error === null && blogs && <BlogList blogs={blogs} title="All Blogs:" handleDeleteBlog={() => console.log("delete pressed")}/>}
             {error === null && blogs && <BlogList blogs={blogs.filter((blog) => blog.author.toLowerCase() === "mario")} 
-                      title="Mario's Blogs:"/>}
+                                         title="Mario's Blogs:" handleDeleteBlog={() => console.log("delete pressed")}/>}
             
         </div>
      );
