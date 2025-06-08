@@ -1,0 +1,62 @@
+### ✅ What is `const` in React?
+
+`const` is a JavaScript keyword — not specific to React — used to declare variables that **can't be reassigned**.
+
+In React, we commonly use `const` to:
+
+---
+
+### 🔹 1. **Declare Components**
+
+```jsx
+const MyComponent = () => {
+  return <h1>Hello!</h1>;
+};
+```
+
+* This defines a functional component.
+* `MyComponent` can’t be reassigned later.
+
+---
+
+### 🔹 2. **Use State or Props**
+
+```jsx
+const [count, setCount] = useState(0);
+const name = props.name;
+```
+
+* Even though `count` changes, you're not reassigning `count` — you're calling `setCount`.
+* `const` ensures you're not accidentally overwriting these variables.
+
+---
+
+### 🔹 3. **Store Event Handlers or Functions**
+
+```jsx
+const handleClick = () => {
+  console.log("Clicked");
+};
+```
+
+---
+
+### 💡 Why use `const`?
+
+* It helps avoid accidental reassignment.
+* Makes your code more predictable and safe.
+* Encouraged by modern JavaScript best practices.
+
+---
+
+### 🆚 `const` vs `let` vs `var` (Quick Chart)
+
+| Keyword | Reassignment | Block Scoped | Use in React |
+| ------- | ------------ | ------------ | ------------ |
+| `const` | ❌ No         | ✅ Yes        | ✅ Preferred  |
+| `let`   | ✅ Yes        | ✅ Yes        | Sometimes    |
+| `var`   | ✅ Yes        | ❌ No         | 🚫 Avoid     |
+
+---
+
+Let me know if you want examples of when to use `let` in React, or a deeper dive into `const` behavior with arrays/objects.
