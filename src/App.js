@@ -1,6 +1,7 @@
 import Navbar from './Navbar';
 import Home from './Home';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Create from './CreateBlog';
 
 function App() {
   // const title = "App Component from const";
@@ -14,8 +15,11 @@ function App() {
         <Navbar /> 
         <div className="content">
           <Switch> {/* Switch is used to render only one route at any point of time */}
-            <Route path="/">
+            <Route exact path="/">
               <Home />
+            </Route>
+            <Route exact path="/create">
+              <Create />
             </Route>
           </Switch> 
           
