@@ -1,0 +1,84 @@
+`useParams` is a React Router hook that lets you access dynamic URL parameters in a React component.
+
+---
+
+## ✅ Example use case:
+
+If you have a route like:
+
+```jsx
+<Route path="/blogs/:id" element={<BlogDetails />} />
+```
+
+And you go to `/blogs/42`, then in your `BlogDetails` component, you can access `id = 42` like this:
+
+---
+
+## ✅ Usage:
+
+```jsx
+import { useParams } from 'react-router-dom';
+
+function BlogDetails() {
+  const { id } = useParams();  // id will be '42' for /blogs/42
+
+  return (
+    <div>
+      <h2>Blog ID: {id}</h2>
+    </div>
+  );
+}
+```
+
+> 🔹 `useParams()` returns an object where the keys are the **dynamic parts** of the route (`:id`, `:slug`, etc.)
+
+---
+
+## ✅ Real-world Example with Fetch
+
+```jsx
+<Route path="/blogs/:id" element={<BlogDetails />} />
+```
+
+```jsx
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+
+function BlogDetails() {
+  const { id } = useParams();
+  const [blog, setBlog] = useState(null);
+
+  useEffect(() => {
+    fetch(`http://localhost:8000/blogs/${id}`)
+      .then(res => res.json())
+      .then(data => setBlog(data));
+  }, [id]);
+
+  return (
+    <div>
+      {blog && (
+        <>
+          <h2>{blog.title}</h2>
+          <p>{blog.body}</p>
+        </>
+      )}
+    </div>
+  );
+}
+```
+
+---
+
+## 📌 Requirements
+
+To use `useParams`, you need:
+
+1. React Router DOM installed:
+
+   ```bash
+   npm install react-router-dom
+   ```
+
+2. Your component to be inside a `<Route>` managed by `<BrowserRouter>` or `<Router>`.
+
+---
