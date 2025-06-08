@@ -1,0 +1,59 @@
+### 🔗 What is a `<Link>` tag in React?
+
+In React (specifically React Router), the `<Link>` component is used to navigate between pages (routes) without reloading the entire page.
+
+> ✅ It’s the React version of an `<a href="...">` tag — but faster and smoother.
+
+---
+
+## 🔧 Import it from:
+
+```js
+import { Link } from 'react-router-dom';
+```
+
+---
+
+## 🧠 Why use `<Link>` instead of `<a>`?
+
+| `<a>` Tag                | `<Link>` Component              |
+| ------------------------ | ------------------------------- |
+| Causes full page reload  | Does not reload the page        |
+| Slower user experience   | Fast, client-side navigation    |
+| Default browser behavior | Works with React Router history |
+
+---
+
+## ✅ Example:
+
+```jsx
+<Link to="/about">About Page</Link>
+```
+
+* Clicking this navigates to the `/about` route
+* React Router updates the **URL and view** without reloading
+
+---
+
+## 🧰 Real-world use:
+
+```jsx
+function Navbar() {
+  return (
+    <nav>
+      <Link to="/">Home</Link> | 
+      <Link to="/blogs">Blogs</Link> | 
+      <Link to="/contact">Contact</Link>
+    </nav>
+  );
+}
+```
+
+---
+
+## ⚠️ Make sure:
+
+* You wrap your app in `<BrowserRouter>` (usually in `App.js` or `index.js`)
+* The `to` prop matches a defined `<Route path="..." />`
+
+---

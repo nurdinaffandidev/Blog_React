@@ -1,0 +1,76 @@
+### ✅ What is `useEffect` in React?
+
+`useEffect` is a React Hook that lets you run side effects in your functional components.
+
+> A side effect is anything that affects something outside the component — like fetching data, setting timers, or updating the DOM.
+
+---
+
+## 🔧 Syntax
+
+```js
+useEffect(() => {
+  // code to run on render or update
+}, [dependencies]);
+```
+
+---
+
+## 🧠 Common Side Effects:
+
+* Fetching data from an API
+* Setting up a timer/interval
+* Subscribing to a service (e.g., WebSocket)
+* Changing the page title or manipulating the DOM
+
+---
+
+## ✅ Example 1: Run once on mount
+
+```jsx
+import { useEffect } from "react";
+
+useEffect(() => {
+  console.log("Component mounted!");
+}, []);
+```
+
+* The empty `[]` means it runs only once (like `componentDidMount`).
+
+---
+
+## ✅ Example 2: Run on dependency change
+
+```jsx
+useEffect(() => {
+  console.log("Name changed to:", name);
+}, [name]);
+```
+
+* This runs every time `name` changes**.
+
+---
+
+## ✅ Example 3: Cleanup on unmount
+
+```jsx
+useEffect(() => {
+  const timer = setTimeout(() => console.log("Hello"), 1000);
+
+  return () => {
+    clearTimeout(timer); // clean up on unmount
+  };
+}, []);
+```
+
+---
+
+## 📌 Summary Table
+
+| useEffect runs when... | Dependencies (`[]`)   | Behavior                             |
+| ---------------------- | --------------------- | ------------------------------------ |
+| Every render           | *no dependency array* | Re-runs after every update           |
+| On mount only          | `[]` (empty array)    | Runs once (like `componentDidMount`) |
+| On specific change     | `[name, age]`         | Runs when any listed value changes   |
+
+---

@@ -1,0 +1,77 @@
+### ✅ What is `useFetch` in React?
+
+`useFetch` is not a built-in React Hook, but it’s a custom hook that developers create reuse fetch logic (like calling APIs) across components.
+
+---
+
+## 🧠 Why use `useFetch`?
+
+Without it, you'd repeat the same `useEffect` + `fetch` logic in every component.
+`useFetch` makes API data fetching cleaner and reusable.
+
+---
+
+## 🔧 Example: Simple `useFetch` Hook
+
+```js
+import { useState, useEffect } from "react";
+
+const useFetch = (url) => {
+  const [data, setData] = useState(null);
+  const [isPending, setIsPending] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch(url)
+      .then(res => {
+        if (!res.ok) {
+          throw Error("Could not fetch data");
+        }
+        return res.json();
+      })
+      .then(data => {
+        setData(data);
+        setIsPending(false);
+        setError(null);
+      })
+      .catch(err => {
+        setError(err.message);
+        setIsPending(false);
+      });
+  }, [url]);
+
+  return { data, isPending, error };
+};
+```
+
+---
+
+## ✅ Using `useFetch` in a Component
+
+```jsx
+const BlogList = () => {
+  const { data: blogs, isPending, error } = useFetch("http://localhost:8000/blogs");
+
+  return (
+    <div>
+      {error && <p>{error}</p>}
+      {isPending && <p>Loading...</p>}
+      {blogs && blogs.map(blog => (
+        <div key={blog.id}>{blog.title}</div>
+      ))}
+    </div>
+  );
+};
+```
+
+---
+
+## 📘 Summary
+
+| Feature    | Purpose                       |
+| ---------- | ----------------------------- |
+| `useFetch` | Custom hook for data fetching |
+| Reusable   | Works with any URL            |
+| Clean code | Keeps components small        |
+
+---
