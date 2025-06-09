@@ -10,6 +10,7 @@ const BlogDetails = () => {
     // url: `http://localhost:8000/blogs/${id}`
     const { data: blog, isPending, error } = useFetch(basePath + id); // useFetch is a custom hook to fetch data from the API`);
     const handleDeleteClick = useDelete(); // custom hook to handle delete operation
+    const history = useHistory(); // useHistory is used to programmatically navigate to a different route
     
     return ( 
         <div className="blog-details">
@@ -20,7 +21,7 @@ const BlogDetails = () => {
                     <h2>{ blog.title }</h2>
                     <p><b>Written by { StringUtils.capitalize(blog.author) }</b></p>
                     <div>{ blog.body }</div>
-                    <button onClick={ () => handleDeleteClick(basePath, blog) }>Delete</button>
+                    <button onClick={ () => handleDeleteClick(basePath, blog, ()=> {history.push('/')}) }>Delete</button>
                 </article>
             }
         </div>
