@@ -1,0 +1,55 @@
+In React Router v5 (or earlier), `useHistory()` is a hook used to access the browser’s history instance, which allows you to navigate programmatically.
+
+> 🚨 **Important:** In React Router v6+, `useHistory()` is replaced with `useNavigate()`.
+
+---
+
+## ✅ Syntax (React Router v5)
+
+```js
+import { useHistory } from "react-router-dom";
+
+const MyComponent = () => {
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.push("/about"); // Navigate to the "/about" route
+  };
+
+  return <button onClick={handleClick}>Go to About</button>;
+};
+```
+
+---
+
+## ✅ Common `history` methods
+
+| Method                  | Description                                                 |
+| ----------------------- | ----------------------------------------------------------- |
+| `history.push(path)`    | Navigate to a new route                                     |
+| `history.replace(path)` | Replace current route without adding a new entry in history |
+| `history.goBack()`      | Go back one step in history                                 |
+| `history.goForward()`   | Go forward one step in history                              |
+
+---
+
+## 🆕 React Router v6+ Equivalent
+
+If you're using React Router v6, you should use `useNavigate()`:
+
+```js
+import { useNavigate } from "react-router-dom";
+
+const MyComponent = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate("/about");
+  };
+
+  return <button onClick={handleClick}>Go to About</button>;
+};
+```
+
+---
+
