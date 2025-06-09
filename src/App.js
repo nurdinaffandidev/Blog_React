@@ -3,6 +3,7 @@ import Home from './Home';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import CreateBlog from './CreateBlog';
 import BlogDetails from './BlogDetails';
+import NotFound from './NotFound';
 
 function App() {
   // const title = "App Component from const";
@@ -26,6 +27,9 @@ function App() {
             <Route exact path="/blogs/:id"> 
               {/* BlogDetails component will receive the id as a prop */}
               <BlogDetails />
+            </Route>
+            <Route path="*"> {/* This will match any other route that is not defined above */}
+              <NotFound />
             </Route>
           </Switch> 
           
