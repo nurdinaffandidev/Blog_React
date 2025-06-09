@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 const useDelete = () => {
     const history = useHistory();
 
-    const handleDelete = (url, blog) => {
+    const handleDelete = (url, blog, onSuccess) => {
         fetch((url + blog.id), {
             method: 'DELETE', // specify the HTTP method as DELETE
         })
@@ -12,7 +12,9 @@ const useDelete = () => {
                 throw Error("Could not delete the blog post");
             }
             console.log(`Blog deleted successfully: ${JSON.stringify(blog)}`);
-            history.push('/'); // navigate to the home page after successful deletion
+            if (onSuccess) {
+                onSuccess(); // call the onSuccess callback if provided
+            }
         })
         .catch((err) => {
             console.error('Error deleting blog:', err);
