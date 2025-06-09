@@ -1,5 +1,6 @@
+import './css/blog-details.css';
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
-import useFetch from "./useFetch";
+import useFetch from "./customHooks/useFetch";
 
 const BlogDetails = () => {
     const { id } = useParams(); // useParams is used to access the dynamic segments in the URL, in this case, the id of the blog post

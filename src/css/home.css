@@ -1,0 +1,47 @@
+.inline-container {
+  display: flex;
+  align-items: center; /* optional: vertical alignment */
+  gap: 10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* blog list styles */
+.blog-list {
+  margin-top: 50px;
+}
+
+.blog-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.blog-preview {
+  padding: 12px 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.blog-preview:hover {
+  box-shadow: 1px 3px 5px #ec87a5;
+  border-radius: 5px;
+}
+
+.blog-preview h2 {
+  color: #f1356d;
+  padding-bottom: 5px;
+}
+
+.blog-preview a {
+  text-decoration: none;
+}
+
+.blog-preview {
+  flex-grow: 1;
+}
+
+.delete-button {
+  margin-left: 20px;
+}
