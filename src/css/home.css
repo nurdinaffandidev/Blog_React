@@ -6,6 +6,15 @@
   margin-bottom: 20px;
 }
 
+.inline-container button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
 /* blog list styles */
 .blog-list {
   margin-top: 50px;
@@ -42,6 +51,12 @@
   flex-grow: 1;
 }
 
-.delete-button {
-  margin-left: 20px;
+.blog-row-delete-button button {
+  background: #fff;;
+  color: #f1356d;
+  border: 2;
+  border-color: #f1356d;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
 }
