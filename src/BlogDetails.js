@@ -3,6 +3,7 @@ import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min
 import useFetch from "./customHooks/useFetch";
 import StringUtils from './utility/StringUtils';
 import useDelete from './customHooks/useDelete';
+import { Link } from "react-router-dom/cjs/react-router-dom.min";
 
 const BlogDetails = () => {
     const { id } = useParams(); // useParams is used to access the dynamic segments in the URL, in this case, the id of the blog post
@@ -14,7 +15,11 @@ const BlogDetails = () => {
     
     return ( 
         <div className="blog-details">
-            { error && <div style={{color: "red"}}><h2 style={{color: "red"}}>Error fetching blog..</h2></div>} 
+            { error && 
+            <div style={{color: "red"}}>
+                <h2 style={{color: "red"}}>Error fetching blog..</h2>
+                <Link to="/"><p>Back to home...</p></Link>
+            </div>} 
             { isPending && <h2>Loading...</h2> }
             { blog && 
                 <article>
