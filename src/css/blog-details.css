@@ -8,3 +8,13 @@
 .blog-details div {
   margin: 20px 0;
 }
+
+.blog-details button {
+  background: #fff;;
+  color: #f1356d;
+  border: 2;
+  border-color: #f1356d;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
