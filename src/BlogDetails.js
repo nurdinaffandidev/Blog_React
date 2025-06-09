@@ -1,6 +1,7 @@
 import './css/blog-details.css';
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import useFetch from "./customHooks/useFetch";
+import StringUtils from './utility/StringUtils';
 
 const BlogDetails = () => {
     const { id } = useParams(); // useParams is used to access the dynamic segments in the URL, in this case, the id of the blog post
@@ -13,7 +14,7 @@ const BlogDetails = () => {
             { blog && 
                 <article>
                     <h2>{ blog.title }</h2>
-                    <p><b>Written by { blog.author }</b></p>
+                    <p><b>Written by { StringUtils.capitalize(blog.author) }</b></p>
                     <div>{ blog.body }</div>
                 </article>
             }

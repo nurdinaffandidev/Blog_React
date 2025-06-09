@@ -5,6 +5,7 @@
 //     const title = props.title;
 
 import { Link } from "react-router-dom/cjs/react-router-dom.min"
+import StringUtils from "./utility/StringUtils"
 
 // destructuring props
 const BlogList = ({blogs, title, handleDeleteBlog}) => {
@@ -16,7 +17,7 @@ const BlogList = ({blogs, title, handleDeleteBlog}) => {
                     <div className="blog-preview" key={ blog.id }>
                         <Link to={`/blogs/${blog.id}`}>
                             <h2>Blog { blog.id }: { blog.title }</h2>
-                            <p>Written by { blog.author }</p>
+                            <p>Written by { StringUtils.capitalize(blog.author) }</p>
                         </Link>
                     </div>
                     <div className="blog-row-delete-button">
