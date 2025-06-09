@@ -6,9 +6,13 @@
 
 import { Link } from "react-router-dom/cjs/react-router-dom.min"
 import StringUtils from "./utility/StringUtils"
+import useDelete from "./customHooks/useDelete"
 
 // destructuring props
-const BlogList = ({blogs, title, handleDeleteBlog}) => {
+const BlogList = ({blogs, title}) => {
+    const handleDeleteClick = useDelete(); // custom hook to handle delete operation
+
+
     return(
         <div className="blog-list">
             <h2>{ title }</h2>
@@ -21,7 +25,13 @@ const BlogList = ({blogs, title, handleDeleteBlog}) => {
                         </Link>
                     </div>
                     <div className="blog-row-delete-button">
-                        <button onClick={handleDeleteBlog}>delete</button>
+                        <button onClick={() => {
+                            handleDeleteClick("http://localhost:8000/blogs/", blog, () => {
+                                // Callback function to execute after successful deletion
+                                window.location.reload(); // reload the page to reflect changes
+                                console.log(`Blog with id ${blog.id} deleted successfully`);
+                            });
+                        }}>delete</button>
                     </div>
                 </div>
             ))}
